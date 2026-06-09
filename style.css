@@ -1,0 +1,346 @@
+/* ==========================================
+   1. RESET DASAR & TIPOGRAFI
+   ========================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #080916;
+    /* Warna latar belakang gelap pekat */
+    color: #e0e4ea;
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* ==========================================
+   2. STRUKTUR UTAMA LAYOUT (Kunci Perbaikan)
+   ========================================== */
+.app-layout {
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+}
+
+/* Kolom Kiri - Tempat Navigasi Vertikal */
+.sidebar-wrapper {
+    width: 110px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    /* Mengunci posisi tombol agar tidak ikut tergulung (scroll) */
+    height: 100vh;
+    left: 0;
+    top: 0;
+    z-index: 10;
+    background: transparent;
+}
+
+/* Kolom Kanan - Tempat Konten Resume Utama */
+.main-content {
+    flex: 1;
+    margin-left: 110px;
+    /* Jarak aman agar konten tidak tertutup oleh navbar kiri */
+    padding: 60px 50px 60px 20px;
+    position: relative;
+    z-index: 1;
+}
+
+/* ==========================================
+   3. DESAIN NAVIGASI VERTIKAL (Glow Effect)
+   ========================================== */
+.vertical-navbar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 60px;
+    height: 400px;
+    background: rgba(13, 22, 38, 0.7);
+    /* Transparansi gelap */
+    backdrop-filter: blur(12px);
+    /* Efek kaca buram (Glassmorphism) */
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 30px;
+    padding: 25px 0;
+    border: 1px solid rgba(0, 210, 255, 0.2);
+    /* Border tipis kebiruan */
+    box-shadow: 0 0 25px rgba(0, 162, 255, 0.15);
+    /* Pendaran halus luar kapsul */
+}
+
+.nav-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    color: #586c85;
+    /* Warna redup saat tidak aktif */
+    font-size: 1.1rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Tombol Aktif - Efek Neon Menyala */
+.nav-item.active {
+    color: #ffffff;
+    background: #0084ff;
+    box-shadow: 0 0 15px #00a2ff,
+        0 0 25px rgba(0, 162, 255, 0.5);
+}
+
+.nav-item:hover:not(.active) {
+    color: #00d2ff;
+    background: rgba(0, 210, 255, 0.1);
+}
+
+/* ==========================================
+   4. BAGIAN 1: ABOUT ME & CONTACT
+   ========================================== */
+.line-lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.section-about {
+    margin-bottom: 60px;
+}
+
+.content-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 50px;
+}
+
+.left-col {
+    flex: 1;
+}
+
+.header-pill {
+    background: linear-gradient(90deg, #966eff 0%, #b898ff 100%);
+    color: #ffffff;
+    display: inline-block;
+    padding: 10px 35px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 3rem;
+    margin-bottom: 30px;
+    text-transform: capitalize;
+}
+
+.section-about p {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    color: #b0b7c3;
+}
+
+.highlight {
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.sub-header {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+/* Grid Kontak */
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px 30px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 1rem;
+    color: #b0b7c3;
+}
+
+.contact-item img {
+    width: 24px;
+    height: 24px;
+}
+
+/* Bingkai Foto Bulat-Oval */
+.right-col {
+    flex: 0 0 auto;
+}
+
+.portrait-container {
+    width: 320px;
+    height: 450px;
+    background-color: #55cde2;
+    border-radius: 60px;
+    overflow: hidden;
+    position: relative;
+    transform: rotate(5deg);
+    /* Rotasi miring estetis sesuai desain asli */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.portrait-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ==========================================
+   5. BAGIAN 2: SKILLS (KOTAK VIOLET BESAR)
+   ========================================== */
+.section-skills {
+    position: relative;
+}
+
+.violet-pill-bg {
+    background: linear-gradient(135deg, #7c4fff 0%, #6e44ff 100%);
+    border-radius: 60px;
+    padding: 50px 40px;
+}
+
+.skill-content-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px 60px;
+}
+
+.section-title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 15px;
+}
+
+.skill-group p {
+    font-size: 1rem;
+    color: #ffffff;
+    opacity: 0.9;
+}
+
+/* Pendidikan dengan Batas Waktu */
+.education .skill-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.timeline {
+    font-size: 0.9rem;
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 5px 15px;
+    border-radius: 20px;
+}
+
+/* Pembagian List Kolom */
+.skill-list-columns {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.skill-list-columns ul {
+    list-style: none;
+    flex: 1;
+}
+
+.skill-list-columns li {
+    font-size: 1rem;
+    color: #ffffff;
+    margin-bottom: 8px;
+    opacity: 0.9;
+}
+
+/* Grid Ikon Teknis */
+.icon-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 250px;
+}
+
+.icon-grid img {
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.2));
+}
+
+.tag-row {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    color: #ffffff;
+    opacity: 0.9;
+}
+
+/* ==========================================
+   6. RESPONSIVE DESIGN (OPTIMALISASI HP/TABLET)
+   ========================================== */
+@media (max-width: 1024px) {
+    .app-layout {
+        flex-direction: column;
+    }
+
+    .sidebar-wrapper {
+        width: 100%;
+        height: 70px;
+        position: relative;
+    }
+
+    .vertical-navbar {
+        flex-direction: row;
+        width: 90%;
+        height: 55px;
+        padding: 0 20px;
+    }
+
+    .main-content {
+        margin-left: 0;
+        padding: 30px 20px;
+    }
+
+    .content-wrapper {
+        flex-direction: column-reverse;
+        align-items: center;
+        text-align: center;
+    }
+
+    .portrait-container {
+        margin-bottom: 40px;
+    }
+
+    .header-pill {
+        font-size: 2.5rem;
+    }
+
+    .skill-content-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+}
